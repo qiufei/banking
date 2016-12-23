@@ -134,23 +134,3 @@
 3.庄毓敏 《商业银行业务与经营》 中国人民大学出版社  2014年10月 第4版 
 
 
-
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
