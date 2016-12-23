@@ -127,8 +127,13 @@
 
 ## 参考书
 
-1. Rose P S, Hudgins S C. Bank management & financial services  McGraw-Hill Education 2012年2月 第9版 
-2. 周好文 何自云主编    《商业银行管理》    北京大学出版社    2014年9月第2版
+1. Rose P S, Hudgins S C. Bank management and financial services  McGraw-Hill Education 2012年2月 第9版 
+
+2. 周好文 何自云  《商业银行管理》    北京大学出版社   2014年9月 第2版
+
+3.庄毓敏 《商业银行业务与经营》 中国人民大学出版社  2014年10月 第4版 
+
+
 
 
 ```markdown
@@ -149,12 +154,3 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/qiufei/banking/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
