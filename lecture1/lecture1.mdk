@@ -7,7 +7,9 @@ Email         : hfutqiufei@163.com
 Reveal Theme  : sky
 Beamer Theme  : singapore
 Package       : [UTF8]ctex
-.madoko { html-lang: zh-Hans-CN; }
+.madoko { html-lang: en;}
+.madoko { html-lang: zh-Hans-CN;}
+
 
 [TITLE]
 
