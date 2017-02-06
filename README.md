@@ -93,11 +93,11 @@
 
 <!-- 4. 汽车贷款管理，主要介绍“直客式”与“间客式”两种模式下商业银行汽车贷款业务的流程、风险及管理办法。 -->
 
-5. 信用卡贷款管理，主要介绍信用卡的种类与在我国的发展、信用卡贷款相关规定及风险管理。
+<!-- 5. 信用卡贷款管理，主要介绍信用卡的种类与在我国的发展、信用卡贷款相关规定及风险管理。 -->
 
-6. 消费信贷的定价，主要介绍消费信贷定价的一般原则、影响因素、定价模型和利息计算方法。
+<!-- 6. 消费信贷的定价，主要介绍消费信贷定价的一般原则、影响因素、定价模型和利息计算方法。 -->
 
-7. 我国商业银行银行个人信贷的发展现状及前景。包括我国消费信贷产生和发展的背景、我国消费信贷的现状及前景展望。
+<!-- 7. 我国商业银行银行个人信贷的发展现状及前景。包括我国消费信贷产生和发展的背景、我国消费信贷的现状及前景展望。 -->
 
 [本章PPT](http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/PPT/第七章个人贷款.html)
 
@@ -153,6 +153,51 @@
 
 
 [本章PPT](http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/PPT/第十一章商业银行的业绩评价.html)
+
+
+## 互动讨论平台
+
+关于课程的提问和讨论，可以到课程的互动讨论界面进行，网址如下：
+
+<https://github.com/qiufei/banking/issues>
+
+也欢迎对本课程和老师的授课进行批评吐槽，我看到会努力改进。
+
+要在这里讨论提问或者吐槽的话，首先要有githud账户，然乎在哪个讨论界面发帖。下面讲些如何做这两步。
+
+### 在github网站注册新账户
+
+github网站网址<https://github.com>
+
+1. 填写注册信息
+
+![zhuce](./pic/github-1.png)
+
+2. 完成账户注册
+
+![finish](./pic/github-2.png)
+
+3. 验证账户邮箱
+![mail](./pic/github-mail.png)
+
+
+### Issues提问
+
+打开这个网址<https://github.com/qiufei/banking/issues>后，可以：
+
+1.新建Issue提问
+
+![new issue step1](./pic/issue-new1.png)
+
+然后
+
+![new issue step2](./pic/issue-new2.png)
+
+2.回帖已经存在的issue进行讨论 
+
+![old issue](./pic/issue-old.png)
+
+
 
 ## 参考书
 
