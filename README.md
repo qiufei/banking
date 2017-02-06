@@ -163,9 +163,9 @@
 
 也欢迎对本课程和老师的授课进行批评吐槽，我看到会努力改进。
 
-要在这里讨论提问或者吐槽的话，首先要有githud账户，然乎在哪个讨论界面发帖。下面讲些如何做这两步。
+要在这里讨论提问或者吐槽的话，首先要有githud账户，然后在哪个讨论界面发帖。下面讲解如何做这两步。
 
-### 在github网站注册新账户
+### 一、吐槽先在github网站注册新账户
 
 github网站网址<https://github.com>
 
@@ -181,11 +181,11 @@ github网站网址<https://github.com>
 ![mail](./pic/github-mail.png)
 
 
-### Issues提问
+### 二、创建Issues，自己提的新问题的
 
 打开这个网址<https://github.com/qiufei/banking/issues>后，可以：
 
-1.新建Issue提问
+新建Issue提问
 
 ![new issue step1](./pic/issue-new1.png)
 
@@ -193,7 +193,7 @@ github网站网址<https://github.com>
 
 ![new issue step2](./pic/issue-new2.png)
 
-2.回帖已经存在的issue进行讨论 
+### 三、对已经有的老issue，回帖进行讨论。 
 
 ![old issue](./pic/issue-old.png)
 
