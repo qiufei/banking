@@ -1,6 +1,6 @@
 # 商业银行业务与经营
 
-## 课程大纲
+## 一、课程大纲
 
 ### 第1章   商业银行导论
  
@@ -155,7 +155,7 @@
 [本章PPT](http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/PPT/第十一章商业银行的业绩评价.html)
 
 
-## 互动讨论平台
+## 二、互动讨论平台
 
 关于课程的提问和讨论，可以到课程的互动讨论界面进行，网址如下：
 
@@ -165,23 +165,28 @@
 
 要在这里讨论提问或者吐槽的话，首先要有githud账户，然后在哪个讨论界面发帖。下面讲解如何做这两步。
 
-### 一、吐槽先在github网站注册新账户
+### （一）吐槽先在github网站注册新账户
 
 github网站网址<https://github.com>
 
-1. 填写注册信息
+1.填写注册信息
+
+**建议大家用自己姓名的汉语拼音全拼+学号后四位作为用户名，这样我可以根据大家的发言讨论情况，给平时成绩加分。**
+
+比如,学号20169201314的韩梅梅同学，建议用户名为hanmeimei1314。
 
 ![zhuce](./pic/github-1.png)
 
-2. 完成账户注册
+2.完成账户注册
 
 ![finish](./pic/github-2.png)
 
-3. 验证账户邮箱
+3.验证账户邮箱
+
 ![mail](./pic/github-mail.png)
 
 
-### 二、创建Issues，自己提的新问题的
+### （二）创建Issues，自己提的新问题的
 
 打开这个网址<https://github.com/qiufei/banking/issues>后，可以：
 
@@ -193,7 +198,7 @@ github网站网址<https://github.com>
 
 ![new issue step2](./pic/issue-new2.png)
 
-### 三、对已经有的老issue，回帖进行讨论。 
+#### 当然你也可以对已经存在的老issue，回帖进行讨论。 
 
 ![old issue](./pic/issue-old.png)
 
