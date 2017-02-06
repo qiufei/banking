@@ -3,10 +3,9 @@ title: "第九章  商业银行中间业务"
 author: "Qiufei"
 date: "2/6/2017"
 output:
-  ioslides_presentation: 
-    logo: wanli.png
-    widescreen: true
-    keep_md: yes
+  revealjs::revealjs_presentation:
+    theme: sky
+keep_md: yes
 ---
 
 
