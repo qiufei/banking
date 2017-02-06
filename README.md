@@ -169,7 +169,7 @@
 
 github网站网址<https://github.com>
 
-> **建议大家用自己姓名的汉语拼音全拼+学号后四位作为用户名，这样我可以根据大家的发言讨论情况，给平时成绩加分。**
+> **建议大家用自己“姓名全拼+学号后四位”作为用户名，这样我可以根据大家的发言讨论情况，给平时成绩加分。**
 
 比如,学号20169201314的韩梅梅同学，建议用户名为hanmeimei1314。
 
@@ -188,7 +188,7 @@ github网站网址<https://github.com>
 
 ### （二）创建Issues，自己提新的问题。
 
-打开这个网址<https://github.com/qiufei/banking/issues>后，可以：
+注册账户后，登陆你的github账户，然后打开这个网址<https://github.com/qiufei/banking/issues>。可以在此进行提问和讨论。方法如下：
 
 1. 新建Issue
 
