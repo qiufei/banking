@@ -12,6 +12,12 @@
 
 4. 商业银行的组织结构和政府对银行业的监管。
 
+[PPT][]
+
+[PPT]:  http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/mdlecture/lecture1.html
+
+
+
 
 ### 第2章   商业银行的资本管理
 
