@@ -7,7 +7,7 @@ git pull
 
 git add --all 
 
-git commit -a -m " do some clear"
+git commit -a -m " update ppt"
 
 git push
 
