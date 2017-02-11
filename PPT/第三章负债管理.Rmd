@@ -9,6 +9,12 @@ output:
       slideNumber: true
 ---
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE,cache = TRUE)
+library(Quandl)
+library(ggplot2)
+library(ggthemes)
+```
 
 ## 什么是金融“脱媒” ##
 
@@ -94,7 +100,18 @@ $$ 边际成本率＝ 边际成本/筹集的新增资金额 $$
     1.  若贴现率提高，表明央行在收紧货币政策。
     2.  若贴现率降低，说明央行在实行宽松的货币政策
 
-## 中国人民银行贴现利率走势图 ##
+## 全国银行间同业隔夜拆借利率走势图 ##
+
+```{r interbank, echo=FALSE}
+
+# overnight Weighted Average Interest Rate(%)
+interbank = Quandl("PBCHINA/REP_12.2", api_key="9iGeZZoG6Vc46rfs1AgJ")
+ggplot(interbank,aes(x = Date, y = interbank[,2]))+
+  geom_line()+
+  ylab("overnight Weighted Average Interest Rate(%)")+
+  theme_economist()
+
+```
 
 ## 证券回购 ##
 
@@ -132,8 +149,67 @@ $$ 边际成本率＝ 边际成本/筹集的新增资金额 $$
 
 * 我国对此限制比较严。
 
+## 我国商业银行的存款结构 ##
+
+中资全国性大型银行人民币信贷收支表
+
+```{r deposits, message=FALSE,warning=FALSE}
+
+# 分别为总存款、活期个人存款，定期个人存款，活期单位存款，定期单位存款
+deposit = Quandl(c("PBCHINA/REP_03B.1","PBCHINA/REP_03B.4","PBCHINA/REP_03B.5","PBCHINA/REP_03B.8","PBCHINA/REP_03B.9"), api_key="9iGeZZoG6Vc46rfs1AgJ")
+
+colnames(deposit) = c("date","total","personal_demand","personal_time","institution_demand","institution_time")
+library(dplyr)
+
+deposit_ratio = transmute(deposit,
+                          date = date,
+                          p_demand = personal_demand/total,
+                          p_time = personal_time/total,
+                          i_demand = institution_demand/total,
+                          i_time = institution_time/total)
+library(reshape2)
+deposit_graph = melt(deposit_ratio,id = "date")
+
+ggplot(deposit_graph,aes(x = date, y = value, color = variable,group = variable))+
+  geom_line()+
+  theme_economist()
+
+```
 
 ## 我国商业银行的负债结构 ##
 
-quandl图
+大型全国行商业银行
+
+```{r structure, message=FALSE,warning=FALSE}
+
+# 分别为总存款、金融债券，卖出回购资产，央行借款，银行同业往来，其他和资金来源总计
+jiegou = Quandl(c("PBCHINA/REP_03B.1","PBCHINA/REP_03B.15","PBCHINA/REP_03B.16","PBCHINA/REP_03B.17","PBCHINA/REP_03B.18","PBCHINA/REP_03B.19","PBCHINA/REP_03B.20"), api_key="9iGeZZoG6Vc46rfs1AgJ")
+
+colnames(jiegou) = c("date","deposit","bond","repo","borrow","inter","other","total")
+
+library(dplyr)
+
+jiegou_ratio = transmute(jiegou,
+                          date = date,
+                          deposit_r = deposit/total,
+                          bond_r = bond/total,
+                         repo_r = repo/total,
+                          borrow_r = borrow/total,
+                          inter_r = inter/total,
+                          other_r = other/total)
+library(reshape2)
+jiegou_graph = melt(jiegou_ratio,id = "date")
+
+ggplot(jiegou_graph,aes(x = date, y = value, color = variable,group = variable))+
+  geom_line()+
+  theme_economist()
+
+```
+
+## 我国商业银行负债结构特点 ##
+
+1. 各项存款是支撑商业银行资产运作的极为重要的来源，虽然2016年已经降低到接近75%。
+
+2. 过度依赖存款也意味着资金来源风险大。虽然居民习惯和技术的进步，存款流失将给商业银行带来越来越大的冲击。
+
 
