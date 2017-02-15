@@ -10,7 +10,7 @@ output:
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE,cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(Quandl)
 library(ggplot2)
 library(ggthemes)
@@ -123,7 +123,7 @@ ggplot(interbank,aes(x = Date, y = interbank[,2]))+
 
 * 欧洲货币市场：当银行接受的存款货币不是母国货币时，该存款就成为欧洲货币存款。
 
-* 起源与欧洲美元市场。
+* 起源于欧洲美元市场。
 
 
 ## 伦敦银行间同业拆借利率 ##
