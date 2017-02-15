@@ -1,7 +1,7 @@
 ---
 title: "第七章  个人贷款"
-author: "Qiufei"
-date: "2/6/2017"
+author: "邱飞"
+date: "万里学院"
 output:
   revealjs::revealjs_presentation:
     theme: sky
