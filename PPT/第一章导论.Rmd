@@ -13,6 +13,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## 本课程的网络主页
+
+<https://qiufei.github.io/banking/>
+
+![homepage](../pic/01-homepage.png)
+
+这里有课程PPT，课程讨论区等内容。
+
 ## 破产为什么叫bankruptcy ##
 
 * bank 源自意大利语banca，意思是长凳。
