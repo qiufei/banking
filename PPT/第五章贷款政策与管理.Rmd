@@ -188,7 +188,28 @@ output:
 
 ## 我国不良贷款率变动图 ##
 
+```{r non-performing loan,echo=FALSE,message=FALSE,fig.height= 5.5}
 
+library(Quandl)
+library(ggplot2)
+library(ggthemes)
+cn_nonperfoming_loan = Quandl("WWDI/CHN_FB_AST_NPER_ZS", api_key="9iGeZZoG6Vc46rfs1AgJ")
+
+ggplot(cn_nonperfoming_loan,aes(x = Date, y = Value))+
+  geom_line(color = "red")+
+  geom_point()+
+  theme_economist()
+
+latest_non = head(cn_nonperfoming_loan,1)[,2]
+latest_year= head(cn_nonperfoming_loan,1)[,1]
+
+show_non = round(latest_non,2)
+library(lubridate)
+show_year = year(latest_year)
+
+```
+
+`r show_year`年的不良率是`r show_non`。
 
 ## 不良贷款的判断指标：经营指标 ##
 
