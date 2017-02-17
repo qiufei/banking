@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 cd ~/banking
 
 git pull
