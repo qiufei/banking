@@ -11,9 +11,6 @@ output:
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(Quandl)
-library(ggplot2)
-library(ggthemes)
 ```
 
 ## 什么是金融“脱媒” ##
@@ -42,17 +39,14 @@ library(ggthemes)
 ## 银行负债的构成
 
 1. 计息负债
-   
-   * **存款负债**
-   * 借款负债
-
+      * 存款负债:立身之本
+      * 借款负债
 2. 非计息负债
-   
-   * 结算性负债
-   * 应付款项
+      * 结算性负债
+      * 应付款项
 
 
-## 商业银行👄重要的资金来源：存款 ##
+## 商业银行最重要的资金来源：存款 ##
 
 * 存款历来是维持商业银行经营的核心。
 
@@ -62,17 +56,25 @@ library(ggthemes)
 ## 存款的特殊性：大众角度
 
 * 保本付息：风险低
+
 * 随时支取：流动性高
+
 * 支付基础：银行卡、支票
+
 * 期限预定：活期、定期
+
 * 对象不定：社会公众
+
 * 特许经营：必须经监管机构特许
 
 ## 存款的特殊性：银行角度
 
 * 存款是银行的象征
+
 * 存款是银行重要性的主要原因
+
 * 存款是银行脆弱性的重要来源
+
 * 存款是银行正常经营的重要基础
 
 ## 中国存款的种类
@@ -153,15 +155,14 @@ library(ggthemes)
 
 ## 存款的定价：成本加利润法 ##
 
-$$ 单位存款的价格＝单位存款的经营支出＋分配单位存款的支出＋单位存款的计划利润 $$
+单位存款的价格＝单位存款的经营支出＋分配单位存款的支出＋单位存款的计划利润
 
 
 ## 存款的定价：边际成本法 ##
 
-$$ 边际成本＝新利率×以新利率筹集的总资金—旧利率×以旧利率筹集的总资金$$
+边际成本＝新利率×以新利率筹集的总资金 —旧利率×以旧利率筹集的总资金
 
-$$ 边际成本率＝ 边际成本/筹集的新增资金额 $$
-
+边际成本率＝ 边际成本/筹集的新增资金额 
 
 
 ## 商业银行资金来源：非存款 ##
@@ -205,16 +206,7 @@ $$ 边际成本率＝ 边际成本/筹集的新增资金额 $$
 
 ## 全国银行间同业隔夜拆借利率走势图 ##
 
-```{r interbank, echo=FALSE}
-
-# overnight Weighted Average Interest Rate(%)
-interbank = Quandl("PBCHINA/REP_12.2", api_key="9iGeZZoG6Vc46rfs1AgJ")
-ggplot(interbank,aes(x = Date, y = interbank[,2]))+
-  geom_line()+
-  ylab("overnight Weighted Average Interest Rate(%)")+
-  theme_economist()
-
-```
+![interbank-rate](03-interbank-rate.png)
 
 ## 证券回购 ##
 
@@ -231,8 +223,8 @@ ggplot(interbank,aes(x = Date, y = interbank[,2]))+
       * 双方约定在将来某一日期由正回购方按约定回购利率计算的资金额向逆回购方返还资金，逆回购方向正回购方返还原出质债券。
 
 2. 买断式回购
-   * 债券持有人（正回购方）将债券卖给债券购买方（逆回购方）的同时，
-   * 交易双方约定在未来某一时期，正回购方再以约定价格从逆回购方买回相等数量同种债券的交易行为。
+      * 债券持有人（正回购方）将债券卖给债券购买方（逆回购方）的同时，
+      * 交易双方约定在未来某一时期，正回购方再以约定价格从逆回购方买回相等数量同种债券的交易行为。
 
 
 ## 国际金融市场融资 ##
@@ -247,8 +239,6 @@ ggplot(interbank,aes(x = Date, y = interbank[,2]))+
 * 国际金融市场融资一般参考伦敦银行间同业拆借利率（libor, London Interbank Offered Rate)
 
 * Libor操纵丑闻
-
-《the economist》对该事件的评论：
 
 > The rotten heart of finance
 
@@ -288,61 +278,17 @@ ggplot(interbank,aes(x = Date, y = interbank[,2]))+
 
 
 ## 我国商业银行的存款结构 ##
-
 中资全国性大型银行人民币信贷收支表
 
-```{r deposits, message=FALSE,warning=FALSE}
+![big-rmb-debt](03-big-rmb-deposit.png)
 
-# 分别为总存款、活期个人存款，定期个人存款，活期单位存款，定期单位存款
-deposit = Quandl(c("PBCHINA/REP_03B.1","PBCHINA/REP_03B.4","PBCHINA/REP_03B.5","PBCHINA/REP_03B.8","PBCHINA/REP_03B.9"), api_key="9iGeZZoG6Vc46rfs1AgJ")
-
-colnames(deposit) = c("date","total","personal_demand","personal_time","institution_demand","institution_time")
-library(dplyr)
-
-deposit_ratio = transmute(deposit,
-                          date = date,
-                          p_demand = personal_demand/total,
-                          p_time = personal_time/total,
-                          i_demand = institution_demand/total,
-                          i_time = institution_time/total)
-library(reshape2)
-deposit_graph = melt(deposit_ratio,id = "date")
-
-ggplot(deposit_graph,aes(x = date, y = value, color = variable,group = variable))+
-  geom_line()+
-  theme_economist()
-
-```
 
 ## 我国商业银行的负债结构 ##
 
 大型全国行商业银行
 
-```{r structure, message=FALSE,warning=FALSE}
+![big-debt-strucute](03-big-debt-structure.png)
 
-# 分别为总存款、金融债券，卖出回购资产，央行借款，银行同业往来，其他和资金来源总计
-jiegou = Quandl(c("PBCHINA/REP_03B.1","PBCHINA/REP_03B.15","PBCHINA/REP_03B.16","PBCHINA/REP_03B.17","PBCHINA/REP_03B.18","PBCHINA/REP_03B.19","PBCHINA/REP_03B.20"), api_key="9iGeZZoG6Vc46rfs1AgJ")
-
-colnames(jiegou) = c("date","deposit","bond","repo","borrow","inter","other","total")
-
-library(dplyr)
-
-jiegou_ratio = transmute(jiegou,
-                          date = date,
-                          deposit_r = deposit/total,
-                          bond_r = bond/total,
-                         repo_r = repo/total,
-                          borrow_r = borrow/total,
-                          inter_r = inter/total,
-                          other_r = other/total)
-library(reshape2)
-jiegou_graph = melt(jiegou_ratio,id = "date")
-
-ggplot(jiegou_graph,aes(x = date, y = value, color = variable,group = variable))+
-  geom_line()+
-  theme_economist()
-
-```
 
 ## 我国商业银行负债结构特点 ##
 

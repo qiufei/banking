@@ -1,0 +1,94 @@
+---
+title: "PPT内R画图"
+author: "邱飞"
+date: "2/17/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(Quandl)
+library(ggplot2)
+library(ggthemes)
+```
+
+
+## 第三章
+
+## 银行间拆解
+
+
+```{r interbank, echo=FALSE}
+library(Quandl)
+library(ggplot2)
+library(ggthemes)
+# overnight Weighted Average Interest Rate(%)
+interbank = Quandl("PBCHINA/REP_12.2", api_key="9iGeZZoG6Vc46rfs1AgJ")
+
+png(file = "03-interbank-rate.png")
+ggplot(interbank,aes(x = Date, y = interbank[,2]))+
+  geom_line()+
+  ylab("overnight Weighted Average Interest Rate(%)")+
+  theme_economist()
+dev.off()
+
+```
+
+## 中资全国性大型银行人民币信贷收支表
+
+```{r big-rmb-deposit, message=FALSE,warning=FALSE}
+
+# aggregate saving,time personal,fixed personal saving,time instittution saving,fixed institution svaing
+deposit = Quandl(c("PBCHINA/REP_03B.1","PBCHINA/REP_03B.4","PBCHINA/REP_03B.5","PBCHINA/REP_03B.8","PBCHINA/REP_03B.9"))
+
+colnames(deposit) = c("date","total","personal_demand","personal_time","institution_demand","institution_time")
+library(dplyr)
+
+deposit_ratio = transmute(deposit,
+                          date = date,
+                          p_demand = personal_demand/total,
+                          p_time = personal_time/total,
+                          i_demand = institution_demand/total,
+                          i_time = institution_time/total)
+library(reshape2)
+deposit_graph = melt(deposit_ratio,id = "date")
+
+png(file = "03-big-rmb-deposit.png")
+ggplot(deposit_graph,aes(x = date, y = value,color = variable,group = variable))+
+  geom_line()+
+  theme_economist()
+dev.off()
+
+```
+
+## 大型全国行商业银行负债结构表
+
+```{r big-debt-structure, message=FALSE,warning=FALSE}
+
+# 分别为aggregate saving,financial bond,repo,boorrow from central bank,interbank,other and aggregate income
+jiegou = Quandl(c("PBCHINA/REP_03B.1","PBCHINA/REP_03B.15","PBCHINA/REP_03B.16","PBCHINA/REP_03B.17","PBCHINA/REP_03B.18","PBCHINA/REP_03B.19","PBCHINA/REP_03B.20"), api_key="9iGeZZoG6Vc46rfs1AgJ")
+
+colnames(jiegou) = c("date","deposit","bond","repo","borrow","inter","other","total")
+
+library(dplyr)
+
+jiegou_ratio = transmute(jiegou,
+                          date = date,
+                          deposit_r = deposit/total,
+                          bond_r = bond/total,
+                         repo_r = repo/total,
+                          borrow_r = borrow/total,
+                          inter_r = inter/total,
+                          other_r = other/total)
+library(reshape2)
+jiegou_graph = melt(jiegou_ratio,id = "date")
+
+
+png(file = "03-big-debt-structure.png")
+ggplot(jiegou_graph,aes(x = date, y = value, color = variable,group = variable))+
+  geom_line()+
+  theme_economist()
+dev.off()
+
+```
+
