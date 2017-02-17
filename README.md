@@ -34,7 +34,7 @@
 
 [第11章 商业银行的财务分析与业绩评价](http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/PPT/第十一章商业银行的业绩评价.html)
 
-* 如果因为网络或者服务器的愿意以上链接不能在线打开，可以[在这里下载html格式的原文件](https://github.com/qiufei/banking/tree/master/PPT)用浏览器大看观看。
+* 如果因为网络或者服务器的愿意以上链接不能在线打开，可以[在这里下载html格式的源文件](https://github.com/qiufei/banking/tree/master/PPT)到本地，再用网络浏览器打开观看。
 
 ## 二、互动讨论平台
 
