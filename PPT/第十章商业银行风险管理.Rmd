@@ -80,7 +80,28 @@ output:
 
 久期（duration）就是加权到期时间。
 
-计算公式如下：
+一般计算公式如下：
+
+
+$$ D = \frac{PV_{t_0}t_0+PV_{t_1}t_1+PV_{t_2}t_2+...+PV_{t_n}t_n}{PV}$$
+ 
+
+其中
+ 
+$$ PV = PV_{t_0}+PV_{t_1}+PV_{t_2}+...+PV_{t_n} $$
+
+* 这个是久期计算的一般公式，一般在于它没有说明用何种利率来折现。
+
+## macaulay久期
+
+* 如果用债券的收益率来折现，那么计算得到的就是macaulay久期。
+
+* 金融工具一年内支付m次，在每期支付的金额为$c_i$，还需要支付n次，$\lambda$为到期收益率,那么这项金融工具的macaulay久期计算公式为：
+
+$$ D = \sum_{i}^{n}\frac{i}{m}\frac{c_i}{[1+(\frac{\lambda}{m})]^i}\frac{1}{PV}   $$
+$$ PV = \sum_{i}^{n}\frac{c_i}{[1+(\frac{\lambda}{m})]^i} $$
+
+
 
 ## 久期缺口 ##
 

@@ -150,7 +150,21 @@
 <section class="slide level2">
 <h2>敏感度分析：久期分析</h2>
 <p>久期（duration）就是加权到期时间。</p>
-<p>计算公式如下：</p>
+<p>一般计算公式如下：</p>
+<p><span class="math display">\[ D = \frac{PV_{t_0}t_0+PV_{t_1}t_1+PV_{t_2}t_2+...+PV_{t_n}t_n}{PV}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[ PV = PV_{t_0}+PV_{t_1}+PV_{t_2}+...+PV_{t_n} \]</span></p>
+<ul>
+<li>这个是久期计算的一般公式，一般在于它没有说明用何种利率来折现。</li>
+</ul>
+</section>
+<section id="macaulay" class="slide level2">
+<h2>macaulay久期</h2>
+<ul>
+<li><p>如果用债券的收益率来折现，那么计算得到的就是macaulay久期。</p></li>
+<li><p>金融工具一年内支付m次，在每期支付的金额为<span class="math inline">\(c_i\)</span>，还需要支付n次，<span class="math inline">\(\lambda\)</span>为到期收益率,那么这项金融工具的macaulay久期计算公式为：</p></li>
+</ul>
+<p><span class="math display">\[ D = \sum_{i}^{n}\frac{i}{m}\frac{c_i}{[1+(\frac{\lambda}{m})]^i}\frac{1}{PV}   \]</span> <span class="math display">\[ PV = \sum_{i}^{n}\frac{c_i}{[1+(\frac{\lambda}{m})]^i} \]</span></p>
 </section>
 <section class="slide level2">
 <h2>久期缺口</h2>

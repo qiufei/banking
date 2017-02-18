@@ -142,6 +142,20 @@ output:
 * 一项资产风险越小，其转换系数越小，最小为0。
 
 ## 风险资产计算的例子 ##
+原始数据
+
+![risk-raw](../pic/02-risk-raw.png)
+
+
+## 风险资产计算：转换率
+表外转化为表内
+
+![risk-convert-rate](../pic/02-convert-rate.png)
+
+
+## 风险资产总额
+
+![risk-result](../pic/02-risk-result.png)
 
 ## 《巴塞尔协议II》对资本要求的改进 ##
 
