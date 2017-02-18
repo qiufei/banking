@@ -87,10 +87,9 @@ github网站网址<https://github.com>
 
 ## 参考书
 
-1. Rose P S, Hudgins S C. Bank management and financial services  McGraw-Hill Education 2012年2月 第9版 
+1. 庄毓敏 《商业银行业务与经营》 中国人民大学出版社  2014年10月 第4版 
 
 2. 周好文 何自云  《商业银行管理》    北京大学出版社   2014年9月 第2版
 
-3. 庄毓敏 《商业银行业务与经营》 中国人民大学出版社  2014年10月 第4版 
-
+3. Rose P S, Hudgins S C. Bank management and financial services  McGraw-Hill Education 2012年2月 第9版 
 
