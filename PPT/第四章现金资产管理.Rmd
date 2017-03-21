@@ -198,9 +198,9 @@ output:
 ## 银行流动性管理理论的发展
 
 * 资产管理理论
-      1. 商业贷款理论（Commercial Loan Theory） 
-      2. 资产转换理论（Shiftability Theory） 
-      3. 预期收入理论（Anticipated Income Theory） 
+      1. 商业贷款理论（Commercial Loan Theory）。该理论认为资产业务应主要集中于短期自偿性贷款。 
+      2. 资产转换理论（Shiftability Theory）。该理论认为银行流动性强弱取决于其资产的迅速变现能力，因此保持资产流动性的最好方法是持有可转换的资产 
+      3. 预期收入理论（Anticipated Income Theory）。该理论认为，银行资产的流动性取决于借款人的预期收入，而不是贷款期限的长短。 
 
 * 负债管理理论：以负债的方法来保证银行流动性 
 
