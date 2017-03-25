@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## the guardian的一则新闻：认为资本金水平提高会影响信贷能力
 
-![guardian](../pic/guardian.png)
+![guardian](../pic/d1-guardian.png)
 
 ## 卫报中英国银行家的观点
 
@@ -27,11 +27,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 > “excess bank equity capital ... would constitute a buffer that is not otherwise available to finance productivity-enhancing capital investment”. 
 
-![greenspan](../pic/greenspan.jpg)
+![greenspan](../pic/d1-greenspan.jpg)
 
 ## 教授的愤怒
 
-![20prof](../pic/20prof.png)
+![20prof](../pic/d1-20prof.png)
 
 ## 教授联名信的观点
 
@@ -148,7 +148,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 穆迪对花旗银行银行的评级
 
-![moody](../pic/moody-citi.png)
+![moody](../pic/d1-moody-citi.png)
 
 
 ## 又一个新的说辞：关于国际竞争力的借口
