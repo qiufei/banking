@@ -162,7 +162,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 * 获取分业监管，准入限制下的垄断利润。
 
-##  {data-background="01-financial-holding.jpg"}
+## 我国的金融控股集团举例  
+
+![financial-holding](../pic/01-financial-holding.jpg)
+
 
 ## 银行组织结构演进的方向：混业、全功能 ##
 
