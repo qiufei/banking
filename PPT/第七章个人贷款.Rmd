@@ -149,3 +149,20 @@ output:
 
 * 根据法律规定，个人经营贷款的借款人要对企业的债务负无限责任。
 
+## fico得分在住房贷款中的应用
+
+- fico分数范围：350-850，分值越高，信用度越好
+
+- fico得分计算涉及45个指标
+
+- 房贷发放考虑的两个核心指标：
+   1. payment-to-income(PTI)
+   2. loan-to-value(LTV)
+
+## 房贷评价
+
+- Fico得分超过660为prime等级
+
+- prime要求PTI,front ratio < 28%,back ration < 36%
+
+- prime要求LTV< 95%
