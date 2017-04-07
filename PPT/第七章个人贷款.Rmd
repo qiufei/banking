@@ -166,3 +166,18 @@ output:
 - prime要求PTI,front ratio < 28%,back ration < 36%
 
 - prime要求LTV< 95%
+
+## 房贷摊销表(Amortization)
+![amortization](../pic/07-interest.png)
+
+## 固定利率房贷t月后的本金计算公式
+
+$$ t月后的本金=贷款额\times\frac{(1+\frac{年利率}{12})^{12n}-(1+\frac{年利率}{12})^t}{(1+\frac{年利率}{12})^{12n}-1}  $$
+
+n表示贷款的年限
+
+## 固定利率房贷第t月归还的本金计算公式
+
+$$第t月归还的本金=贷款额\times\frac{(\frac{年利率}{12}) \times (1+\frac{年利率}{12})^{t-1}}{(1+\frac{年利率}{12})^{12n}-1}  $$
+
+n表示贷款的年限
