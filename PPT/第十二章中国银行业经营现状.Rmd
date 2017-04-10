@@ -1,0 +1,99 @@
+---
+title: "中国银行业经营现状"
+author: "邱飞"
+date: "万里学院"
+output:
+  revealjs::revealjs_presentation:
+    theme: sky
+    reveal_options:
+      slideNumber: true
+---
+
+```{r setup, include=FALSE,message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE,message=FALSE,warning=FALSE)
+library(plyr)
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(Quandl)
+# fourbank = Quandl("PBCHINA/REP_03C",start_date="2010-01-31", api_key="9iGeZZoG6Vc46rfs1AgJ")
+# save(fourbank,file = "fourbank.rda")
+load("fourbank.rda")
+
+# bigbank = Quandl("PBCHINA/REP_03B", api_key="9iGeZZoG6Vc46rfs1AgJ")
+# save(bigbank,file = "bigbank.rda")
+load("bigbank.rda")
+
+# the percent of item to fund source or use
+#### solution 1
+fourrate_nodate = apply(fourbank[-1],2,function(x) {x/fourbank[21]})
+fourrate_data = data.frame(fourrate_nodate)
+fourrate_2 = cbind(fourbank[1],fourrate_data)
+colnames(fourrate_2) = colnames(fourbank)
+
+# the percent of item to fund source or use: four bank
+#### solution 2
+# 33 columns of second column of fourbank , that is the fund source column
+total_fund_four = do.call("cbind", 
+                          replicate(33,fourbank[21], simplify = FALSE))
+rate_four = fourbank[-1]/total_fund_four
+fourrate = cbind(fourbank[1],rate_four)
+
+
+# the percent of item to fund source or use: national bank
+# 33 columns of second column of fourbank , that is the fund source column
+total_fund_big = do.call("cbind", 
+                         replicate(33,fourbank[21], simplify = FALSE))
+rate_big = fourbank[-1]/total_fund_big
+bigrate = cbind(fourbank[1],rate_big)
+
+# the percent of four bank to nation bank
+four_to_big_nodate = fourbank[-1]/bigbank[-1]
+four_to_big = cbind(fourbank[1],four_to_big_nodate)
+
+```
+
+## 存款构成
+
+这里我们主要分析存款的构成。
+
+
+## 单位活期存款
+
+期初数 `r last(bigrate[9])`，期末数 `r first(bigrate[9])`
+```{r}
+
+bankplot = function(dat,n){
+  ggplot(dat,
+       aes(x = Date,y = dat[n]))+
+   geom_line()+geom_point(color = "red")+
+  theme_wsj()
+}
+
+# corp demand is column 9
+
+bankplot(bigrate,9)
+
+
+```
+
+
+## 单位定期存款
+
+期初数 `r last(bigrate[10])`，期末数 `r first(bigrate[10])`
+```{r}
+bankplot(bigrate,10)
+```
+
+
+
+## 单位存款
+
+期初数 `r last(bigrate[8])`，期末数 `r first(bigrate[8])`
+```{r}
+bankplot(bigrate,8)
+```
+
+
+
+
