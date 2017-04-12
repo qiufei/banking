@@ -36,6 +36,21 @@
 
 * 如果因为网络或者服务器的愿意以上链接不能在线打开，可以[在这里下载html格式的源文件](https://github.com/qiufei/banking/tree/master/PPT)到本地，再用网络浏览器打开观看。
 
+
+[第12章 电子银行](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/第十二章电子银行.html)
+
+[第13章 国际银行](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/第十三章国际银行.html)
+
+### 讨论PPT
+
+[discussion 1](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/讨论一：提高资本金水平是否会造成信贷crunch.html)
+
+[discusiion 2](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/讨论二：银行的混业与分业.html)
+
+[discussion 3](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/讨论三：政府对商业银行的担保之后应该要求什么.html)
+
+[discussion 4](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/讨论四：住房抵押贷款证券化是否应该由商业银行来做.html)
+
 ## 二、互动讨论区
 
 关于课程的提问和讨论，可以到课程的互动讨论界面进行，网址如下：
