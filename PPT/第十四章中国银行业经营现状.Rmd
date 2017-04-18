@@ -26,10 +26,10 @@ load("bigbank.rda")
 
 # the percent of item to fund source or use
 #### solution 1
-fourrate_nodate = apply(fourbank[-1],2,function(x) {x/fourbank[21]})
-fourrate_data = data.frame(fourrate_nodate)
-fourrate_2 = cbind(fourbank[1],fourrate_data)
-colnames(fourrate_2) = colnames(fourbank)
+# fourrate_nodate = apply(fourbank[-1],2,function(x) {x/fourbank[21]})
+# fourrate_data = data.frame(fourrate_nodate)
+# fourrate_2 = cbind(fourbank[1],fourrate_data)
+# colnames(fourrate_2) = colnames(fourbank)
 
 # the percent of item to fund source or use: four bank
 #### solution 2
@@ -51,18 +51,14 @@ bigrate = cbind(fourbank[1],rate_big)
 four_to_big_nodate = fourbank[-1]/bigbank[-1]
 four_to_big = cbind(fourbank[1],four_to_big_nodate)
 
-```
+# loan and deposit structure
+depo_loan = transmute(bigrate,
+                      Date = Date,
+                      core_rate = bigrate[,6]/bigrate[,4],
+                      fund_rate = bigrate[,7]/bigrate[,4]
+                      )
 
-## 存款构成
-
-这里我们主要分析存款的构成。
-
-
-## 单位活期存款
-
-期初数 `r last(bigrate[9])`，期末数 `r first(bigrate[9])`
-```{r}
-
+# the plot function
 bankplot = function(dat,n){
   ggplot(dat,
        aes(x = Date,y = dat[n]))+
@@ -70,12 +66,32 @@ bankplot = function(dat,n){
   theme_wsj()
 }
 
+```
+
+## 银行信贷收支表分析
+
+资金来源部分
+
+资金使用部分
+
+
+## 单位活期存款
+
+期初数 `r last(bigrate[9])`，期末数 `r first(bigrate[9])`
+```{r}
+
 # corp demand is column 9
 
 bankplot(bigrate,9)
 
 
 ```
+
+## 单位活期存款的意义
+
+- 单位活期存款反应了企业的资金紧张程度
+
+- 单位活期存款比重不断下降，表明企业的资金面一直处于紧张状态
 
 
 ## 单位定期存款
@@ -95,5 +111,321 @@ bankplot(bigrate,8)
 ```
 
 
+## 同业存款
+
+期初数 `r last(bigrate[19])`，期末数 `r first(bigrate[19])`
+```{r}
+bankplot(bigrate,19)
+```
 
 
+## 回购
+
+期初数 `r last(bigrate[17])`，期末数 `r first(bigrate[17])`
+```{r}
+bankplot(bigrate,17)
+```
+
+## 个人存款
+
+期初数 `r last(bigrate[4])`，期末数 `r first(bigrate[4])`
+```{r}
+bankplot(bigrate,4)
+```
+
+
+## 储蓄存款
+
+期初数 `r last(bigrate[6])`，期末数 `r first(bigrate[6])`
+```{r}
+bankplot(bigrate,6)
+```
+
+## 个人结构存款
+
+期初数 `r last(bigrate[7])`，期末数 `r first(bigrate[7])`
+```{r}
+bankplot(bigrate,7)
+```
+
+## 
+
+- 个人结构存款对应银行理财产品资金
+
+- 个人存款占比下降，主要是存款向理财资金的转变
+
+
+## 全国性银行储蓄存款占总存款的比重
+
+```{r}
+
+bankplot(depo_loan,2)
+
+```
+
+## 银行体系资金来源的稳定性在下降
+
+
+- 大型银行的核心存款占总存款的比重降到了50%以下，这说明我国银行体系资金来源的稳定性在下降。
+
+
+## 存款市场的垄断程度
+
+期初数 `r last(four_to_big[2])`，期末数 `r first(four_to_big[2])`。
+
+存款市场的垄断程度在持续降低。
+```{r}
+bankplot(four_to_big,2)
+```
+
+
+
+## 金融债券
+
+期初数 `r last(bigrate[16])`，期末数 `r first(bigrate[16])`
+```{r}
+bankplot(bigrate,16)
+```
+
+## 金融债券的垄断势力
+
+期初数 `r last(four_to_big[16])`，期末数 `r first(four_to_big[16])`。
+
+这说明四大行较少进行金融债券融资。
+```{r}
+bankplot(four_to_big,16)
+```
+
+
+
+## 其他负债的垄断性
+
+期初数 `r last(four_to_big[20])`，期末数 `r first(four_to_big[20])`。
+```{r}
+bankplot(four_to_big,20)
+```
+
+## 其他负债方式的垄断
+
+- 其他负债的垄断势力高，
+
+- 这说明四大行在金融债券之外，实现负债结构的多元化
+
+## 国外存款
+
+期初数 `r last(bigrate[15])`，期末数 `r first(bigrate[15])`
+```{r}
+bankplot(bigrate,15)
+```
+
+
+## 非存款金融机构的存款
+
+期初数 `r last(bigrate[14])`，期末数 `r first(bigrate[14])`
+```{r}
+bankplot(bigrate,14)
+```
+
+
+
+## 其他资金来源
+
+期初数 `r last(bigrate[20])`，期末数 `r first(bigrate[20])`
+```{r}
+bankplot(bigrate,20)
+```
+
+
+
+
+## 贷款总额占资金使用的比重
+
+期初数 `r last(bigrate[22])`，期末数 `r first(bigrate[22])`
+```{r}
+bankplot(bigrate,22)
+```
+
+## 贷款增速
+
+
+```{r loan growth rate}
+
+library(TTR)
+
+loan_data = arrange(bigbank[,c(1,22)], Date)
+
+
+loan_rate = transmute(loan_data, date = Date, rate =  ROC(loan_data[,2]))
+  
+ 
+ggplot(loan_rate, aes(x = date, y = rate))+geom_point(color = "red")+geom_line()+theme_economist()
+
+```
+
+
+## 增幅的意义
+
+- 贷款月度增速均值为1%，也就是说年增速接近13%，
+
+- 高于同期GDP增速。
+
+- 贷款增幅与GDP之间有何关系？
+
+## 各国信贷占GDP的比重的比较
+
+```{r loan to gdp}
+library(quantmod)
+library(reshape2)
+## get data from fed
+fedata = function(x.name){
+    getSymbols(x.name,
+               src = "FRED",
+               auto.assign=FALSE #让getsymbol不要自动取名字
+    )}
+
+usa.credit = fedata('DDDI12USA156NWDB')
+china.credit = fedata('DDDI12CNA156NWDB')
+german.credit = fedata('DDDI12DEA156NWDB')
+japan.credit = fedata('DDDI12JPA156NWDB')
+world.credit = fedata('DDDI121WA156NWDB')
+
+credit.all = cbind(usa.credit,
+                   china.credit,
+                   german.credit,
+                   japan.credit,
+                   world.credit)
+credit.all = data.frame(
+    year = time(credit.all),
+    coredata(credit.all))
+
+colnames(credit.all) = c('year','usa','china','german','japan','world')
+
+credit.pic = melt(credit.all,id = 'year',variable = 'country')
+
+ggplot(credit.pic,aes(x = year,y = value,color = country,shape = country))+
+    geom_line()+
+    geom_point()+
+    annotate('rect',xmin = as.Date('2007-01-01'),xmax = as.Date('2008-01-01'),ymin = 0,ymax = 200,alpha=0.1,fill = 'blue')+
+    ggtitle('credit to GDP (%)') 
+
+
+
+```
+
+
+## 中国信贷占GDP的比重不是最高的
+
+- 最上面蓝色与红色分别是日本和美国的数据,
+
+- 可以看到美国信贷占GDP的比重在2008年达到最大,也是在这一年,次贷危机全面爆发。
+
+## 2008年后开始高速加杠杆
+
+- 中间绿色和棕色分别是中国和德国的数据,中贷款占GDP的比重与德国的水平相似
+
+- 并且这两个国家的共同特点是当美日这一指标在2007年达到高点时,中德两国达到低点
+
+- 中国尤其特殊的地方是,当2008年后美德日三国都开始去杠杆的时候(表现为这一指标的下降),中国开始高速加杠杆,指标值快速上升.
+
+## 一个值得探索的问题
+
+- 目前世界的信贷占GDP的比重处在历史上的最高水平 
+
+- 世界1984-2005之间,世界总体的信贷占GDP的比重是比较平稳的,此后一直上升.
+
+
+## 四大行贷款占比
+
+```{r}
+bankplot(four_to_big,22)
+```
+
+## 贷款市场垄断性减轻
+
+- 四大行占款占比直线下降
+
+- 这表明贷款市场长垄断性在下降
+
+- 这也是目前各大行积极开展新业务的原因，传统的贷款业务竞争越来越激烈
+
+## 短期贷款
+
+期初数 `r last(bigrate[24])`，期末数 `r first(bigrate[24])`。
+
+在实体经济表现不佳的情况下，短期贷款的比重不断上升。
+```{r}
+bankplot(bigrate,24)
+```
+
+
+## 长期贷款
+
+期初数 `r last(bigrate[25])`，期末数 `r first(bigrate[25])`
+
+长期贷款比重呈现出波动状态，这可能与投资周期的波动有关。
+```{r}
+bankplot(bigrate,25)
+```
+
+
+## 票据融资
+
+期初数 `r last(bigrate[26])`，期末数 `r first(bigrate[26])`
+```{r}
+bankplot(bigrate,26)
+```
+
+
+## 证券投资
+
+期初数 `r last(bigrate[29])`，期末数 `r first(bigrate[29])`
+
+商业银行证券投资比重不断降低，这表明近年来银行对风险承担越来越谨慎。
+```{r}
+bankplot(bigrate,29)
+```
+
+## 股权投资
+
+期初数 `r last(bigrate[30])`，期末数 `r first(bigrate[30])`
+
+商业银行法规定，商业银行在中国境内不得对非金融企业进行股权投资。
+```{r}
+bankplot(bigrate,30)
+```
+
+## 逆回购
+
+期初数 `r last(bigrate[31])`，期末数 `r first(bigrate[31])`
+```{r}
+bankplot(bigrate,31)
+```
+
+
+## 准备金
+
+期初数 `r last(bigrate[32])`，期末数 `r first(bigrate[32])`
+```{r}
+bankplot(bigrate,32)
+```
+
+## 实体经济与准备金
+
+- 从商业银行在央行的储备可以看出货币政策态度的变化，
+
+- 央行被来是为了防止流动性过剩从而提高准备金率的，
+
+- 但是随着实体经济的下行，央行随之下降准备金水平来刺激经济。
+
+## 同业业务
+
+期初数 `r last(bigrate[33])`，期末数 `r first(bigrate[33])`
+```{r}
+bankplot(bigrate,33)
+```
+
+## 监管部门对同业的关注
+
+- 同业数据大幅波动，是因为这里存在着创新与监管的博弈
+
+- 中国分业监管的模式下，商业银行的很多金融“创新”是通过同业业务进行的
