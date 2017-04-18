@@ -44,7 +44,7 @@
 
 
 
-[第14章 中国银行业经营现状](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/第十四章中国银行业经营现状.html)
+[第14章 中国银行业经营现状](http://htmlpreview.github.io/?https://github.com/qiufei/banking/blob/master/PPT/第十四章中国银行业经营现状.html) [备用地址](https://rawgit.com/qiufei/banking/master/PPT/第十四章中国银行业经营现状.html)
 
 ### 讨论PPT
 
