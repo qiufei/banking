@@ -31,6 +31,8 @@
 
 [第10章 商业银行风险管理](http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/PPT/第十章商业银行风险管理.html)
 
+[第10章第十章 backup](https://rawgit.com/qiufei/banking/master/PPT/第十章商业银行风险管理.html)
+
 
 [第11章 商业银行的财务分析与业绩评价](http://htmlpreview.github.com/?https://github.com/qiufei/banking/blob/master/PPT/第十一章商业银行的业绩评价.html)
 
