@@ -1,5 +1,5 @@
 ---
-title: "中国银行业经营现状"
+title: "电子银行"
 author: "邱飞"
 date: "万里学院"
 output:
